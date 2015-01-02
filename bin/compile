@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 # bin/compile <build-dir> <cache-dir> <env-dir>
 
 echo "_Compiling_ Logstash package :)"
@@ -13,10 +13,12 @@ mkdir -p $CACHE_DIR
 LOGSTASH_URL=https://download.elasticsearch.org/logstash/logstash/logstash-1.4.2.tar.gz
 
 
-if [[-f $CACHE_DIR/logstash-1.4.2.tar.gz ]]; then
+if [[ -f "$CACHE_DIR/logstash-1.4.2.tar.gz" ]]; then
     echo "Logstash package already detected in cache, skipping download."
 else
+    echo "Downloading Logstash..."
     curl --silent --location $LOGSTASH_URL -o $CACHE_DIR/logstash-1.4.2.tar.gz
+    echo "...done."
 fi
 
 echo "Unpacking Logstash..."
