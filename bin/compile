@@ -16,7 +16,7 @@ LOGSTASH_URL=https://download.elasticsearch.org/logstash/logstash/logstash-1.4.2
 if [[ -f "$CACHE_DIR/logstash-1.4.2.tar.gz" ]]; then
     echo "Logstash package already detected in cache, skipping download."
 else
-    echo "Downloading Logstash..."
+    echo "Downloading Logstash into $CACHE_DIR ..."
     curl --silent --location $LOGSTASH_URL -o $CACHE_DIR/logstash-1.4.2.tar.gz
     echo "...done."
 fi
